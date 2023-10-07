@@ -1,6 +1,3 @@
-// Derived from the implementation in
-// http://csclab.murraystate.edu/~bob.pilgrim/445/munkres.html
-
 #include <queue>
 
 #include "hungarian.hpp"
@@ -13,7 +10,6 @@ int main() {
                                         {13, 13, 15, 13, 14},
                                         {18, 10, 13, 16, 14},
                                         {12, 8, 16, 19, 10}};
-  // vector<vector<int>> cost_matrix = {{1,2,3},{2,4,6},{3,6,9}};
   taskassignment t1(cost_matrix, 5);
   vector<vector<int>> assignment = t1.hungarian();
 
