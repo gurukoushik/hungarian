@@ -9,44 +9,42 @@
 #include <unordered_map>
 #include <unordered_set>
 
-using namespace std;
-
 class taskassignment {
  private:
-  vector<vector<double>> cost_matrix;
+  std::vector<std::vector<double>> cost_matrix;
   int n;
-  vector<vector<int>> mask;
-  vector<int> rowcover;
-  vector<int> colcover;
+  std::vector<std::vector<int>> mask;
+  std::vector<int> rowcover;
+  std::vector<int> colcover;
   int saved_row;
   int saved_col;
   int path_count;
-  vector<vector<int>> path;
+  std::vector<std::vector<int>> path;
   int step;
 
  public:
-  taskassignment(vector<vector<double>> cost_matrix, int n) {
+  taskassignment(std::vector<std::vector<double>> cost_matrix, int n) {
     this->cost_matrix = cost_matrix;
     this->n = n;
-    vector<vector<int>> mask(n, vector<int>(n, 0));
-    vector<int> rowcover(n, 0);
-    vector<int> colcover(n, 0);
+    std::vector<std::vector<int>> mask(n, std::vector<int>(n, 0));
+    std::vector<int> rowcover(n, 0);
+    std::vector<int> colcover(n, 0);
     this->mask = mask;
     this->rowcover = rowcover;
     this->colcover = colcover;
     saved_row = -1;
     saved_col = -1;
     path_count = 0;
-    vector<vector<int>> path(2 * n + 1, vector<int>(2, 0));
+    std::vector<std::vector<int>> path(2 * n + 1, std::vector<int>(2, 0));
     this->path = path;
     step = 0;
   }
 
-  vector<vector<int>> getmask() { return mask; }
+  std::vector<std::vector<int>> getmask() { return mask; }
 
   void rowminsubtract() {
     // Row minimum subtraction
-    vector<double> rowmin(n, std::numeric_limits<double>::infinity());
+    std::vector<double> rowmin(n, std::numeric_limits<double>::infinity());
     for (int i = 0; i < n; i++)
       rowmin[i] = *min_element(cost_matrix[i].begin(), cost_matrix[i].end());
 
@@ -59,7 +57,7 @@ class taskassignment {
 
   void colminsubtract() {
     // Column Minimum Subtraction
-    vector<double> colmin(n, std::numeric_limits<double>::infinity());
+    std::vector<double> colmin(n, std::numeric_limits<double>::infinity());
     for (int j = 0; j < n; j++)
       for (int i = 0; i < n; i++)
         if (colmin[j] > cost_matrix[i][j]) colmin[j] = cost_matrix[i][j];
@@ -287,19 +285,19 @@ class taskassignment {
     step = 4;
   }
 
-  void print_matrix(vector<vector<int>> matrix) {
+  void print_matrix(std::vector<std::vector<int>> matrix) {
     // Print matrix
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
-        cout << matrix[i][j] << " ";
+        std::cout << matrix[i][j] << " ";
       }
-      cout << endl;
+      std::cout << std::endl;
     }
   }
 
-  /*void print_vector(vector<auto> vec)
+  /*void print_std::vector(std::vector<auto> vec)
   {
-          // Print vector
+          // Print std::vector
           for(int j = 0; j < n; j++)
           {
                   cout << vec[j] << " ";
@@ -307,7 +305,7 @@ class taskassignment {
           cout << endl;
   }*/
 
-  vector<vector<int>> hungarian() {
+  std::vector<std::vector<int>> hungarian() {
     bool done = false;
     step = 1;
     int cnt = 0;
@@ -340,7 +338,7 @@ class taskassignment {
     }
 
     if (!done) {
-      vector<vector<int>> nullassignment(n, vector<int>(n, -1));
+      std::vector<std::vector<int>> nullassignment(n, std::vector<int>(n, -1));
       return nullassignment;
     }
 
