@@ -296,16 +296,6 @@ class taskassignment {
     }
   }
 
-  /*void print_std::vector(std::vector<auto> vec)
-  {
-          // Print std::vector
-          for(int j = 0; j < n; j++)
-          {
-                  cout << vec[j] << " ";
-          }
-          cout << endl;
-  }*/
-
   std::vector<std::vector<int>> hungarian() {
     bool done = false;
     step = 1;
