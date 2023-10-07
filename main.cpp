@@ -1,5 +1,3 @@
-#include <queue>
-
 #include "hungarian.hpp"
 
 int main() {
