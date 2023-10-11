@@ -14,4 +14,4 @@ file(GLOB SRC
 )
 
 # Add your source files and set up the build
-add_executable(hung main.cpp ${SRC})
+add_executable(hung src/main.cpp ${SRC})
