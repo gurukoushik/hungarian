@@ -10,9 +10,10 @@
 #include <unordered_map>
 #include <unordered_set>
 
+template <typename P>
 class TaskAssignment {
  private:
-  std::vector<std::vector<double>> cost_matrix;
+  std::vector<std::vector<P>> cost_matrix;
   int n;
   std::vector<std::vector<int>> mask;
   std::vector<int> rowcover;
@@ -24,7 +25,7 @@ class TaskAssignment {
   int step;
 
  public:
-  TaskAssignment(std::vector<std::vector<double>> cost_matrix) {
+  TaskAssignment(std::vector<std::vector<P>> cost_matrix) {
     this->cost_matrix = cost_matrix;
     this->n = cost_matrix.size();
     std::vector<std::vector<int>> mask(n, std::vector<int>(n, 0));
@@ -45,7 +46,7 @@ class TaskAssignment {
 
   void rowminsubtract() {
     // Row minimum subtraction
-    std::vector<double> rowmin(n, std::numeric_limits<double>::infinity());
+    std::vector<P> rowmin(n, std::numeric_limits<P>::infinity());
     for (int i = 0; i < n; i++)
       rowmin[i] = *min_element(cost_matrix[i].begin(), cost_matrix[i].end());
 
@@ -58,7 +59,7 @@ class TaskAssignment {
 
   void colminsubtract() {
     // Column Minimum Subtraction
-    std::vector<double> colmin(n, std::numeric_limits<double>::infinity());
+    std::vector<P> colmin(n, std::numeric_limits<P>::infinity());
     for (int j = 0; j < n; j++)
       for (int i = 0; i < n; i++)
         if (colmin[j] > cost_matrix[i][j]) colmin[j] = cost_matrix[i][j];
@@ -263,7 +264,7 @@ class TaskAssignment {
     step = 3;
   }
 
-  void findsmallest(double &minim) {
+  void findsmallest(P &minim) {
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
         if (rowcover[i] == 0 && colcover[j] == 0) {
@@ -276,7 +277,7 @@ class TaskAssignment {
   }
 
   void altercoveredrow() {
-    double minim = std::numeric_limits<double>::infinity();
+    P minim = std::numeric_limits<P>::infinity();
     findsmallest(minim);
     for (int i = 0; i < n; i++)
       for (int j = 0; j < n; j++) {

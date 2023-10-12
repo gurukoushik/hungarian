@@ -8,9 +8,9 @@ BOOST_AUTO_TEST_CASE(test_3x3) {
   std::vector<std::vector<double>> cost_matrix = {
       {1, 2, 3}, {3, 1, 2}, {2, 3, 1}};
 
-  TaskAssignment t1(cost_matrix);
+  TaskAssignment<double> t1(cost_matrix);
   std::vector<std::vector<int>> assignment = t1.hungarian();
-  std::vector<std::vector<double>> expected_assignment = {
+  std::vector<std::vector<int>> expected_assignment = {
       {1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
   for (int i = 0; i < cost_matrix.size(); i++) {
     for (int j = 0; j < cost_matrix[0].size(); j++) {
