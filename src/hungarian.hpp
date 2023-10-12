@@ -24,9 +24,9 @@ class TaskAssignment {
   int step;
 
  public:
-  TaskAssignment(std::vector<std::vector<double>> cost_matrix, int n) {
+  TaskAssignment(std::vector<std::vector<double>> cost_matrix) {
     this->cost_matrix = cost_matrix;
-    this->n = n;
+    this->n = cost_matrix.size();
     std::vector<std::vector<int>> mask(n, std::vector<int>(n, 0));
     std::vector<int> rowcover(n, 0);
     std::vector<int> colcover(n, 0);
