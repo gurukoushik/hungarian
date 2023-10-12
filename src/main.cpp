@@ -3,8 +3,6 @@
 #include "hungarian.hpp"
 
 int main() {
-  std::cout << "\nHungarian Method for nxn optimal assignment\n\n";
-
   std::vector<std::vector<double>> cost_matrix = {{11, 7, 10, 17, 10},
                                                   {13, 21, 7, 11, 13},
                                                   {13, 13, 15, 13, 14},
@@ -20,9 +18,14 @@ int main() {
   auto timeTaken = std::chrono::duration_cast<std::chrono::duration<double>>(
       timeEnd - timeStart);
 
+  std::cout << "Cost matrix: \n\n";
+  t1.print_matrix(cost_matrix);
+  std::cout << std::endl;
+
   std::cout << "The optimal assignment is: \n\n";
   t1.print_matrix(assignment);
   std::cout << std::endl;
+
   std::cout << "Time taken to compute: " << timeTaken.count() << " s"
             << std::endl;
 

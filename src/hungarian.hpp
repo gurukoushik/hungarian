@@ -286,7 +286,8 @@ class TaskAssignment {
     step = 4;
   }
 
-  void print_matrix(std::vector<std::vector<int>> matrix) {
+  template <typename T>
+  void print_matrix(std::vector<std::vector<T>> matrix) {
     // Print matrix
     for (int i = 0; i < n; i++) {
       for (int j = 0; j < n; j++) {
