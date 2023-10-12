@@ -1,5 +1,5 @@
 // Derived from the implementation in
-// http://csclab.murraystate.edu/~bob.pilgrim/445/munkres.html
+// https://users.cs.duke.edu/~brd/Teaching/Bio/asmb/current/Handouts/munkres.html
 
 #include <algorithm>
 #include <iostream>
@@ -326,7 +326,7 @@ class TaskAssignment {
           done = true;
           break;
       }
-      cnt++;
+      // cnt++;
     }
 
     if (!done) {
