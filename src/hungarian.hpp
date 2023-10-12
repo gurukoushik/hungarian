@@ -10,7 +10,7 @@
 #include <unordered_map>
 #include <unordered_set>
 
-class taskassignment {
+class TaskAssignment {
  private:
   std::vector<std::vector<double>> cost_matrix;
   int n;
@@ -24,7 +24,7 @@ class taskassignment {
   int step;
 
  public:
-  taskassignment(std::vector<std::vector<double>> cost_matrix, int n) {
+  TaskAssignment(std::vector<std::vector<double>> cost_matrix, int n) {
     this->cost_matrix = cost_matrix;
     this->n = n;
     std::vector<std::vector<int>> mask(n, std::vector<int>(n, 0));
