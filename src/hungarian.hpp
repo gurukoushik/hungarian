@@ -96,7 +96,6 @@ class TaskAssignment {
     for (int i = 0; i < n; i++) rowcover[i] = 0;
     for (int i = 0; i < n; i++) colcover[i] = 0;
 
-    // print_matrix(mask);
     step = 3;
   }
 
@@ -135,27 +134,6 @@ class TaskAssignment {
     bool done = false;
     row = -1;
     col = -1;
-
-    // while(!done)
-    // {
-    // 	c = 0;
-    // 	while(true)
-    // 	{
-    // 		if(cost_matrix[r][c] == 0 && rowcover[r] == 0 && colcover[c] ==
-    // 0)
-    // 		{
-    // 			row = r;
-    // 			col = c;
-    // 			done = true;
-    // 		}
-    // 		c++;
-    // 		if (c >= n || done)
-    // 			break;
-    // 	}
-    // 	r++;
-    // 	if(r >= n)
-    // 		done = true;
-    // }
 
     for (int i = 0; i < n; i++) {
       if (!done) {
