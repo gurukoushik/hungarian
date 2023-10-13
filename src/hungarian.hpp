@@ -15,12 +15,15 @@ class TaskAssignment {
  private:
   std::vector<std::vector<P>> cost_matrix;
   int n;
+
   std::vector<std::vector<int>> mask;
   std::vector<int> rowcover;
   std::vector<int> colcover;
+
   int saved_row;
   int saved_col;
   int path_count;
+
   std::vector<std::vector<int>> path;
   int step;
 
@@ -28,21 +31,22 @@ class TaskAssignment {
   TaskAssignment(std::vector<std::vector<P>> cost_matrix) {
     this->cost_matrix = cost_matrix;
     this->n = cost_matrix.size();
+
     std::vector<std::vector<int>> mask(n, std::vector<int>(n, 0));
     std::vector<int> rowcover(n, 0);
     std::vector<int> colcover(n, 0);
+
     this->mask = mask;
     this->rowcover = rowcover;
     this->colcover = colcover;
     saved_row = -1;
     saved_col = -1;
     path_count = 0;
+
     std::vector<std::vector<int>> path(2 * n + 1, std::vector<int>(2, 0));
     this->path = path;
     step = 0;
   }
-
-  std::vector<std::vector<int>> getmask() { return mask; }
 
   void rowminsubtract() {
     // Row minimum subtraction
