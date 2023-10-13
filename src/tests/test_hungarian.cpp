@@ -9,7 +9,7 @@ BOOST_AUTO_TEST_CASE(test_3x3) {
       {1, 2, 3}, {3, 1, 2}, {2, 3, 1}};
 
   TaskAssignment<double> t1(cost_matrix);
-  std::vector<std::vector<int>> assignment = t1.hungarian();
+  std::vector<std::vector<int>> assignment = t1.run();
   std::vector<std::vector<int>> expected_assignment = {
       {1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
   for (int i = 0; i < cost_matrix.size(); i++) {
@@ -27,7 +27,7 @@ BOOST_AUTO_TEST_CASE(test_templating) {
         {1.0, 2.0, 3.0}, {3.0, 1.0, 2.0}, {2.0, 3.0, 1.0}};
 
     TaskAssignment<double> t1(cost_matrix);
-    std::vector<std::vector<int>> assignment = t1.hungarian();
+    std::vector<std::vector<int>> assignment = t1.run();
     std::vector<std::vector<int>> expected_assignment = {
         {1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
     for (int i = 0; i < cost_matrix.size(); i++) {
@@ -44,7 +44,7 @@ BOOST_AUTO_TEST_CASE(test_templating) {
         {1.0, 2.0, 3.0}, {3.0, 1.0, 2.0}, {2.0, 3.0, 1.0}};
 
     TaskAssignment<float> t1(cost_matrix);
-    std::vector<std::vector<int>> assignment = t1.hungarian();
+    std::vector<std::vector<int>> assignment = t1.run();
     std::vector<std::vector<int>> expected_assignment = {
         {1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
     for (int i = 0; i < cost_matrix.size(); i++) {
@@ -61,7 +61,7 @@ BOOST_AUTO_TEST_CASE(test_templating) {
         {1, 2, 3}, {3, 1, 2}, {2, 3, 1}};
 
     TaskAssignment<int> t1(cost_matrix);
-    std::vector<std::vector<int>> assignment = t1.hungarian();
+    std::vector<std::vector<int>> assignment = t1.run();
     std::vector<std::vector<int>> expected_assignment = {
         {1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
     for (int i = 0; i < cost_matrix.size(); i++) {

@@ -12,7 +12,7 @@ int main() {
   auto timeStart = std::chrono::high_resolution_clock::now();
 
   TaskAssignment<double> t1(cost_matrix);
-  std::vector<std::vector<int>> assignment = t1.hungarian();
+  std::vector<std::vector<int>> assignment = t1.run();
 
   auto timeEnd = std::chrono::high_resolution_clock::now();
   auto timeTaken = std::chrono::duration_cast<std::chrono::duration<double>>(

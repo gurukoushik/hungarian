@@ -290,7 +290,7 @@ class TaskAssignment {
     }
   }
 
-  std::vector<std::vector<int>> hungarian() {
+  std::vector<std::vector<int>> run() {
     bool done = false;
     step = 1;
 
