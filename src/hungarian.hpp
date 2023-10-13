@@ -61,18 +61,6 @@ class TaskAssignment {
     step = 2;
   }
 
-  void colminsubtract() {
-    // Column Minimum Subtraction
-    std::vector<P> colmin(n, std::numeric_limits<P>::infinity());
-    for (int j = 0; j < n; j++)
-      for (int i = 0; i < n; i++)
-        if (colmin[j] > cost_matrix[i][j]) colmin[j] = cost_matrix[i][j];
-
-    for (int j = 0; j < n; j++)
-      for (int i = 0; i < n; i++)
-        cost_matrix[i][j] = cost_matrix[i][j] - colmin[j];
-  }
-
   int numofrowzeros(int row_index) {
     // Row zeros count
     int count = 0;
