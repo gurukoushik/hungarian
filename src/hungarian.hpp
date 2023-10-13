@@ -305,9 +305,8 @@ class TaskAssignment {
   std::vector<std::vector<int>> hungarian() {
     bool done = false;
     step = 1;
-    int cnt = 0;
 
-    while (!done && cnt < 10000) {
+    while (!done) {
       switch (step) {
         case 1:
           rowminsubtract();
@@ -331,7 +330,6 @@ class TaskAssignment {
           done = true;
           break;
       }
-      // cnt++;
     }
 
     if (!done) {
